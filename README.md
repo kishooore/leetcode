@@ -1,2 +1,2 @@
 # leetcode
-leetcode practive
+leetcode practice
