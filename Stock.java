@@ -2,29 +2,18 @@
 public class Stock {
     public static void main(String[] args) {
         Stock stock = new Stock();
-        int[] prices = {2,4,1};
+        int[] prices = {1, 3, 8, 4};
         System.out.print(stock.maxProfit(prices));
     }
     
     public int maxProfit(int[] prices) {
-        int minIndex = min(prices);
+        int minStock = prices[0];
         int maxProfit = 0;
-        for (int i = minIndex + 1; i<prices.length; i++) {
-            int profit = prices[i] - prices[minIndex];
-            if (profit > maxProfit) {
-                maxProfit = profit;
-            }
+        for (int i = 0; i<prices.length; i++) {
+            maxProfit = Math.max(maxProfit, prices[i] - minStock);
+            minStock = Math.max(prices[i], minStock);
         }
         return maxProfit;
     }
 
-    private int min(int[] prices) {
-        int min = 0;
-        for (int i=1; i<prices.length; i++) {
-            if (prices[i] < prices[min]) {
-                min = i;
-            }
-        }
-        return min;
-    }
 }
