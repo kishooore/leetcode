@@ -3,16 +3,12 @@ public class ReverseLinkedList {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
-//        head.next.next.next = new ListNode(4);
-//        head.next.next.next.next = new ListNode(5);
-//        head.next.next.next.next.next = new ListNode(6);
-//        head.next.next.next.next.next.next = new ListNode(7);
-//        head.next.next.next.next.next.next.next = new ListNode(8);
+        head.next.next.next = new ListNode(4);
         ReverseLinkedList list = new ReverseLinkedList();
-        head = list.reverse(head, 1, 2);
-        while (head != null) {
-            System.out.print(head.val + "->");
-            head = head.next;
+        ListNode tail = list.reverse2(head);
+        while (tail != null) {
+            System.out.print(tail.val + "->");
+            tail = tail.next;
         }
         System.out.println("NULL");
     }
@@ -49,6 +45,16 @@ public class ReverseLinkedList {
         ListNode tail = reverse(head.next, fast);
         tail.next = head;
         return head;
+    }
+
+    public ListNode reverse2(ListNode head) {
+        if (head.next == null) {
+            return head;
+        }
+        ListNode temp = reverse2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return temp;
     }
 
     static class ListNode {

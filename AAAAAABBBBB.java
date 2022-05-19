@@ -1,9 +1,17 @@
+import java.util.HashMap;
+import java.util.Optional;
+
 @SuppressWarnings("unused")
 public class AAAAAABBBBB {
     public static void main(String[] args) {
         AAAAAABBBBB test = new AAAAAABBBBB();
-        int min = test.minimum("bbbbbbbbbbbbbbb");
-        System.out.print(min);
+        //int min = test.minimum("bbbbbbbbbbbbbbb");
+        //System.out.print(min);
+        Object str = new HashMap<>();
+        String tenantId = (String) str;
+        boolean isEmpty = tenantId == null || tenantId.length() == 0;
+        Optional<String> tenant = isEmpty ? Optional.empty() : Optional.of(tenantId);
+        System.out.println(tenant.isPresent());
     }
 
     public int minEdit(String str) {
