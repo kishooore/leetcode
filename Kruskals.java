@@ -100,6 +100,7 @@ public class Kruskals {
                 parent[rootP] = rootQ;
                 rank[rootQ] += rank[rootP];
             }
+            count--;
         }
 
         boolean connected(int p, int q) {
